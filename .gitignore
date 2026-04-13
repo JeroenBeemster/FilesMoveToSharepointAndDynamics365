@@ -1,0 +1,10 @@
+*.code-workspace
+*.txt
+*.xlsx
+*.csv
+.env
+*.json
+*.pfx
+*.cer
+*.key
+*.old
