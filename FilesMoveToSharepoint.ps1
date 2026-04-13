@@ -181,11 +181,23 @@ function getFilesInFolder($path) {
         }
 
 
+
         if ($_.DirectoryName.ToUpper().EndsWith("MANUAL") -and $_.name.ToUpper().EndsWith(".PDF")) {
             # ignore subfolders including 'Obsolete' subfolder
             # ignores all docx and  
             $_.label = 'Manuals' 
         }
+    
+        # not only folder, include files that starts with manual 
+        if ($_.DirectoryName.EndsWith($_.projectNr) -and $_.name.ToUpper().StartsWith("MANUAL") -and $_.name.ToUpper().EndsWith(".PDF")) {  
+            $_.label = 'Manuals' 
+        }       
+
+        #if ($_.DirectoryName.EndsWith($_.projectNr) -and { 
+        if ($_.name.ToUpper().StartsWith("MANUAL") -and $_.name.ToUpper().EndsWith(".PDF")) {  
+            Write-Host $_.name, $_.projectNr, $_.DirectoryName
+        }       
+
 
         if ($_.DirectoryName.EndsWith($_.projectNr) -and ($_.name.StartsWith("SP")  )) {
             $_.label = 'Spares' 
@@ -469,4 +481,6 @@ $SharepointConn
 mainRoutine "C:\Orders\3*" "3"
 
 #mainRoutine "N:\Orders\60000-60249" "6"
+#mainRoutine "N:\Orders\60000-60249\60079" "6"
+
 
