@@ -1,0 +1,17 @@
+{
+  "oAuthTokenEndpoint": "https://login.microsoftonline.com/<key>/oauth2/v2.0/token",
+  "appId": "<key>",
+  "clientSecret": "<key>",
+  "comment_clientidname": "#app registration Sharepoint migrate data from fileserver",
+  "SharepointClientID": "<key>",
+  "SharepointTenant": "domain.com",
+  "customerAssetSharepointLocation": "msdyn_customerasset",
+  "comment_sharepointhumbprint": "#locale computer Jeroen",
+  "SharepointThumbPrint": "<key>",
+  "dataverseEnvUrl": "https://domain-acc.api.crm4.dynamics.com",
+  "sharepointSite": "https://domain.sharepoint.com/sites/CRM-ACC",
+  "commentSharepointThumbPrint": "<key>  computer S-abf1-man111",
+  "commentdataverseEnvUrl2": "https: domain-dev.api.crm4.dynamics.com",
+  "commentdataverseEnvUrl3": "https: domain.api.crm4.dynamics.com",
+  "commmentsharepointSite": "https: domain.sharepoint.com/sites/CRM/crm"
+}

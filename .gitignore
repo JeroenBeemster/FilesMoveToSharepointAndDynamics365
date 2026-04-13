@@ -3,7 +3,7 @@
 *.xlsx
 *.csv
 .env
-*.json
+keys.json
 *.pfx
 *.cer
 *.key
