@@ -176,7 +176,11 @@ function getFilesInFolder($path) {
             $_.label = 'Pictures' 
         }
 
-        if ($_.DirectoryName.EndsWith($_.projectNr) -and $_.name.ToUpper().EndsWith(".JPG") ) {
+        #if ($_.DirectoryName.EndsWith($_.projectNr) -and $_.name.ToUpper().EndsWith(".JPG") ) {
+        #    $_.label = 'Pictures' 
+        #}
+
+        if ($_.name.ToUpper().EndsWith(".JPG") ) {
             $_.label = 'Pictures' 
         }
 
@@ -273,9 +277,16 @@ function getuniqueAssets($filesInFolder, $assetGroup) {
     $uniqueAssets | Add-Member -MemberType NoteProperty -Name 'ProjectNr' -Value $null
         
 
-    $selectString = 'msdyn_customerassets?$filter=startswith(amb_serialnumber, ''' + $assetGroup + ''')' +
+    #$selectString = 'msdyn_customerassets?$filter=startswith(amb_serialnumber, ''' + $assetGroup + ''')' +
+    #' and (statecode eq 0) ' + 
+    #'&$select=amb_serialnumber'
+
+    $selectstring = 'msdyn_customerassets?$filter=startswith(amb_serialnumber, ''' + $assetgroup + ''')' + 
     ' and (statecode eq 0) ' + 
-    '&$select=amb_serialnumber'
+    '&$select=amb_serialnumber' + 
+    '&$orderby=amb_serialnumber asc'
+
+
     $customerAssets = GetDataFromDataverse($selectString)
     if ($customerAssets.value.amb_serialnumber.Count -lt 1) {
         Write-Host "No Serialnumbers found"
@@ -478,9 +489,8 @@ $SharepointConn
 #mainRoutine "N:\Orders\9*" "9"
 #mainRoutine "N:\Orders\30000-30249\30013" "3"
 #mainRoutine "N:\Orders\30000-30249" "3"
-mainRoutine "C:\Orders\3*" "3"
+#mainRoutine "C:\Orders\3*" "3"
 
 #mainRoutine "N:\Orders\60000-60249" "6"
 #mainRoutine "N:\Orders\60000-60249\60079" "6"
-
-
+mainRoutine "C:\Orders\60000-60249" "6"
